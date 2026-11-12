@@ -464,7 +464,8 @@ const ROUTE_KEY = 'qy-web2-route';
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const saved = (() => { try { return JSON.parse(localStorage.getItem(ROUTE_KEY)) || {}; } catch (e) { return {}; } })();
-  const [route, setRoute] = useState({ page: saved.page || 'home', param: saved.param || null });
+  // Al abrir la web siempre se empieza en Inicio; solo se recuerdan el idioma y el modo oscuro.
+  const [route, setRoute] = useState({ page: 'home', param: null });
   const [lang, setLang] = useState(saved.lang || 'es');
   const [dark, setDark] = useState(!!saved.dark);
   const [fading, setFading] = useState(false);
