@@ -19,3 +19,9 @@ En **Settings → Pages → Custom domain** escribe tu dominio (p. ej. `byqiyo.c
 - `index.html` — página principal
 - `web2/` — secciones y textos (`data.js` contiene los textos)
 - `assets/opt/`, `img/` — fotos comprimidas
+
+## Código precompilado (velocidad)
+
+La web ya no traduce el código en el navegador: `index.html` carga `web2/app.build.js`, generado a partir de `web/*.jsx`, `web2/*.jsx` y `web2/app.jsx`.
+Si cambias algún `.jsx`, vuelve a generarlo con `npm install` (una vez) y `npm run compilar`.
+Si sustituyes la web por una nueva exportación de Claude Design, este paso se pierde y la web volverá a cargar más lenta.

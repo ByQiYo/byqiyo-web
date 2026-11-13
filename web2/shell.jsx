@@ -72,7 +72,7 @@ function DesktopNav() {
   return (
     <>
       <header className={'qy-nav' + (overHero && !open ? ' on-hero' : '')} style={open ? { mixBlendMode: 'normal' } : null}>
-        <button className="qy-logo" onClick={() => nav(['home'])} aria-label="By QiYo"><img src="assets/byqiyo-logo.png" alt="By QiYo" /></button>
+        <button className="qy-logo" onClick={() => nav(['home'])} aria-label="By QiYo"><img loading="lazy" decoding="async" src="assets/byqiyo-logo.png" alt="By QiYo" /></button>
         {wide ? (
           <nav className="qy-links">
             {menu.map(m => (
@@ -107,7 +107,7 @@ function Footer({ theme = 'paper' }) {
   return (
     <footer className="qy-footer" style={{ background: th.bg, color: th.fg, borderTop: `1px solid ${th.line}` }}>
       <div className="qy-footer-brand">
-        <img src="assets/byqiyo-logo.png" alt="By QiYo" style={{ filter: th.bg !== '#FFFFFF' ? 'invert(1)' : 'none' }} />
+        <img loading="lazy" decoding="async" src="assets/byqiyo-logo.png" alt="By QiYo" style={{ filter: th.bg !== '#FFFFFF' ? 'invert(1)' : 'none' }} />
         <p style={{ color: th.mute }}>{tr(QY.home.claim, lang)} {tr(QY.home.claimSub, lang)}.</p>
       </div>
       <div className="qy-footer-col">
@@ -145,7 +145,7 @@ function RevealLayer({ children, enabled }) {
   return (
     <RevealCtx.Provider value={api}>
       {children}
-      <div ref={box} className="qy-reveal" style={{ opacity: img ? 1 : 0 }}>{img && <img src={img} alt="" />}</div>
+      <div ref={box} className="qy-reveal" style={{ opacity: img ? 1 : 0 }}>{img && <img loading="lazy" decoding="async" src={img} alt="" />}</div>
     </RevealCtx.Provider>
   );
 }

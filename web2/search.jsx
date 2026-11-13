@@ -164,7 +164,7 @@ function Search({ id }) {
           {q.trim() && <><h2 className="qy-h2">{es ? `No hay resultados para «${q.trim()}».` : `No results for “${q.trim()}”.`}</h2><p className="qy-body qy-mute">{es ? 'Prueba con otra palabra, revisa la ortografía o explora una de estas búsquedas.' : 'Try another word, check the spelling or explore one of these searches.'}</p></>}
           <div className="qy-chips">{SUGGEST.map(s => { const t = tr(s, lang); return <button key={t} className="qy-chip" onClick={() => setQ(t)}>{t}</button>; })}</div>
           <div className="qy-search-browse">
-            {QY.collections.map(c => <button key={c.id} className="qy-proj-spec" onClick={() => go('collection', c.id)}><div className="qy-slot" style={{ aspectRatio: '4/5' }}><img src={c.cover} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} /></div><div className="qy-col-card-cap"><span>{c.name}</span><span className="qy-num qy-mute">{tr(c.season, lang)}</span></div></button>)}
+            {QY.collections.map(c => <button key={c.id} className="qy-proj-spec" onClick={() => go('collection', c.id)}><div className="qy-slot" style={{ aspectRatio: '4/5' }}><img loading="lazy" decoding="async" src={c.cover} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} /></div><div className="qy-col-card-cap"><span>{c.name}</span><span className="qy-num qy-mute">{tr(c.season, lang)}</span></div></button>)}
           </div>
         </section>
       )}

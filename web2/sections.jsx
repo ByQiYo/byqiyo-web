@@ -52,7 +52,7 @@ function SingleCarousel({ imgs, fit = 'cover', bg, ratio = '4/5', h }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <div style={{ position: 'relative', aspectRatio: ratio, height: h, minHeight: h ? 420 : undefined, overflow: 'hidden', background: bg }}>
-        {imgs.map((src, k) => <img key={k} src={src} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: fit, opacity: k === i ? 1 : 0, transition: 'opacity .5s' }} />)}
+        {imgs.map((src, k) => <img loading="lazy" decoding="async" key={k} src={src} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: fit, opacity: k === i ? 1 : 0, transition: 'opacity .5s' }} />)}
       </div>
       <CarouselNav i={i} n={n} go={go} />
     </div>
@@ -66,7 +66,7 @@ function ProjectBody({ p }) {
   return (<>
     <section className="qy-block qy-proj-two">
       <div><SectionHead label={tr(p.film.t, lang)} />{li(p.film.items)}<h3 className="qy-eyebrow qy-mute" style={{ marginTop: 32 }}>{es ? 'Trama y argumento' : 'Plot and themes'}</h3>{li(p.film.themes)}</div>
-      <figure className="qy-proj-fig"><img src={p.inspo} alt="" /><figcaption className="qy-small qy-mute">{es ? 'Rachel Weisz como Hipatia de Alejandría' : 'Rachel Weisz as Hypatia of Alexandria'}</figcaption></figure>
+      <figure className="qy-proj-fig"><img loading="lazy" decoding="async" src={p.inspo} alt="" /><figcaption className="qy-small qy-mute">{es ? 'Rachel Weisz como Hipatia de Alejandría' : 'Rachel Weisz as Hypatia of Alexandria'}</figcaption></figure>
     </section>
     <section className="qy-block">
       <SectionHead label={es ? 'Investigación' : 'Research'} />
@@ -146,7 +146,7 @@ function LabCat({ id }) {
       <section className="qy-pieces">
         {pieces.map(p => (
           <div key={p.id} className="qy-piece">
-            <div className="qy-piece-img">{p.img ? <img src={p.img} alt={p[lang].t} /> : <Slot id={'web-piece-' + p.id} label={p.es.t + ' · foto'} ratio="4/5" />}</div>
+            <div className="qy-piece-img">{p.img ? <img loading="lazy" decoding="async" src={p.img} alt={p[lang].t} /> : <Slot id={'web-piece-' + p.id} label={p.es.t + ' · foto'} ratio="4/5" />}</div>
             <div className="qy-col-card-cap"><span>{p[lang].t}</span><span className="qy-num qy-mute">{p.n}</span></div>
             <span className="qy-small qy-mute">{p[lang].v}</span>
           </div>

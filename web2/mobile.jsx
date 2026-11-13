@@ -6,11 +6,11 @@ const TAB_OF = { home: 'home', collections: 'collections', collection: 'collecti
 function FitImg({ src, pos, fit, alt = '' }) {
   if (fit === 'contain') return (
     <div className="qy-fit">
-      <img className="qy-fit-bg" src={src} alt="" aria-hidden="true" />
-      <img className="qy-fit-c" src={src} alt={alt} />
+      <img loading="lazy" decoding="async" className="qy-fit-bg" src={src} alt="" aria-hidden="true" />
+      <img loading="lazy" decoding="async" className="qy-fit-c" src={src} alt={alt} />
     </div>
   );
-  return <div className="qy-fit"><img className="qy-fit-cover" src={src} alt={alt} style={{ objectPosition: pos || 'center' }} /></div>;
+  return <div className="qy-fit"><img loading="lazy" decoding="async" className="qy-fit-cover" src={src} alt={alt} style={{ objectPosition: pos || 'center' }} /></div>;
 }
 
 function MobileNav() {
@@ -25,7 +25,7 @@ function MobileNav() {
   return (
     <>
       <header className="qy-abar">
-        <button className="qy-logo" onClick={() => nav('home')} aria-label="By QiYo"><img src="assets/byqiyo-logo.png" alt="By QiYo" /></button>
+        <button className="qy-logo" onClick={() => nav('home')} aria-label="By QiYo"><img loading="lazy" decoding="async" src="assets/byqiyo-logo.png" alt="By QiYo" /></button>
         <SearchButton onOpen={() => { setMore(false); setSOpen(true); }} />
       </header>
       {sOpen && <SearchOverlay onClose={() => setSOpen(false)} />}
@@ -80,7 +80,7 @@ function HomeApp() {
     <div className="qy-app-home">
       <HeroStories />
       <section className="qy-app-intro">
-        <img src="assets/byqiyo-q.png" alt="" className="qy-card-q" />
+        <img loading="lazy" decoding="async" src="assets/byqiyo-q.png" alt="" className="qy-card-q" />
         <p className="qy-card-lead">{tr(QY.home.intro, lang)}</p>
         <button className="qy-card-cta dark" onClick={() => go('about', 'byqiyo')}>{es ? 'Conocer la marca' : 'About the brand'} →</button>
       </section>

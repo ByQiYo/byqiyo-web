@@ -19,7 +19,7 @@ function LookCard({ f, c, th }) {
     <div className="qy-look" onMouseEnter={() => showImg && f.back && setFlip(true)} onMouseLeave={() => setFlip(false)}>
       <div className="qy-look-img">
         {showImg
-          ? <><img src={f.img} alt={name} style={{ opacity: flip ? 0 : 1 }} />{f.back && <img src={f.back} alt="" style={{ opacity: flip ? 1 : 0 }} />}</>
+          ? <><img loading="lazy" decoding="async" src={f.img} alt={name} style={{ opacity: flip ? 0 : 1 }} />{f.back && <img loading="lazy" decoding="async" src={f.back} alt="" style={{ opacity: flip ? 1 : 0 }} />}</>
           : <image-slot id={`web-look-${c.id}-${f.n}`} shape="rect" fit="contain" placeholder={'Figurín · ' + name}></image-slot>}
       </div>
       <div className="qy-look-cap">
@@ -56,20 +56,20 @@ function Collection({ id }) {
       <section className="qy-c-head">
         <div className="qy-c-head-l">
           <span className="qy-eyebrow" style={{ color: th.mute }}>{tr(c.season, lang)} · {c.count} {tr(QY.ui.looks, lang)}</span>
-          <img className={'qy-c-logo' + (c.id === 'rebirth' ? ' inv' : '')} src={c.logo} alt={c.name} />
+          <img loading="lazy" decoding="async" className={'qy-c-logo' + (c.id === 'rebirth' ? ' inv' : '')} src={c.logo} alt={c.name} />
         </div>
         <div className="qy-c-head-r">
           <h2 className="qy-h2">{tr(c.sub, lang)}</h2>
           <p className="qy-body" style={{ color: th.mute }}>{tr(c.intro, lang)}</p>
         </div>
       </section>
-      <section className="qy-c-cover">{c.cover ? <img className="qy-c-cover-img" src={c.cover} alt={c.name} /> : <Slot id={'web-c-cover-' + c.id} label={'Editorial ' + c.name + ' · horizontal a sangre'} ratio="21/9" />}</section>
+      <section className="qy-c-cover">{c.cover ? <img loading="lazy" decoding="async" className="qy-c-cover-img" src={c.cover} alt={c.name} /> : <Slot id={'web-c-cover-' + c.id} label={'Editorial ' + c.name + ' · horizontal a sangre'} ratio="21/9" />}</section>
 
       <section className="qy-block qy-c-concept">
         <SectionHead label={tr(QY.ui.concept, lang)} theme={c.theme} />
         <div className="qy-two">
           <p className="qy-lead">{tr(c.body, lang)}</p>
-          {c.moodboard ? <img className="qy-mood" src={c.moodboard} alt={'Moodboard ' + c.name} /> : <Slot id={'web-c-concept-' + c.id} label={'Moodboard ' + c.name} ratio="4/5" />}
+          {c.moodboard ? <img loading="lazy" decoding="async" className="qy-mood" src={c.moodboard} alt={'Moodboard ' + c.name} /> : <Slot id={'web-c-concept-' + c.id} label={'Moodboard ' + c.name} ratio="4/5" />}
         </div>
       </section>
 
@@ -80,7 +80,7 @@ function Collection({ id }) {
           <div className="qy-refs">
             {c.refs.map(r => (
               <button key={r.id} className="qy-ref" onClick={() => go('sculptor', r.id)}>
-                <div className="qy-ref-portrait"><img src={r.portrait} alt={r.name} /></div>
+                <div className="qy-ref-portrait"><img loading="lazy" decoding="async" src={r.portrait} alt={r.name} /></div>
                 <div className="qy-linebar"><i style={{ background: r.accent }}></i><span className="qy-eyebrow" style={{ color: th.mute }}>{tr(r.tag, lang)}</span></div>
                 <h3 className="qy-h3">{r.name} →</h3>
               </button>
@@ -200,7 +200,7 @@ function About({ id }) {
       <section className="qy-about qy-about-brand" id="byqiyo">
         <div className="qy-about-txt">
           <span className="qy-eyebrow qy-mute">{tr(QY.ui.nav.about, lang)} · 02</span>
-          <img className="qy-about-logo" src="assets/byqiyo-logo.png" alt="By QiYo" />
+          <img loading="lazy" decoding="async" className="qy-about-logo" src="assets/byqiyo-logo.png" alt="By QiYo" />
           <p className="qy-lead" style={{ textAlign: 'justify' }}>{tr(QY.about.body, lang)}</p>
         </div>
         <div>
@@ -295,14 +295,14 @@ function Sculptor({ id }) {
     <div>
       <PageHead back={<button className="qy-eyebrow qy-link" onClick={() => go('collection', c.id)}>← {c.name} · {lang === 'es' ? 'Inspiración' : 'Inspiration'}</button>} eyebrow={tr(r.tag, lang)} title={r.name} />
       <section className="qy-block qy-sc">
-        <div className="qy-sc-portrait"><img src={r.portrait} alt={r.name} /></div>
+        <div className="qy-sc-portrait"><img loading="lazy" decoding="async" src={r.portrait} alt={r.name} /></div>
         <div className="qy-sc-txt">
           {r.body.map((t, k) => { const s = tr(t, lang); const i = k > 0 ? s.indexOf('. ') : -1; return <p key={k} className={k === 0 ? 'qy-lead' : 'qy-body'}>{i > 0 && i < 40 ? <><strong>{s.slice(0, i + 1)}</strong>{s.slice(i + 1)}</> : s}</p>; })}
         </div>
       </section>
       <section className="qy-block qy-sc-works">
         <SectionHead label={lang === 'es' ? 'Obra' : 'Work'} right={n2(r.works.length)} />
-        <div className="qy-ed-row">{r.works.map((w, k) => <img key={k} src={w} alt={'Obra de ' + r.name} />)}</div>
+        <div className="qy-ed-row">{r.works.map((w, k) => <img loading="lazy" decoding="async" key={k} src={w} alt={'Obra de ' + r.name} />)}</div>
       </section>
       <button className="qy-next" onClick={() => go('sculptor', next.id)}><span className="qy-eyebrow qy-mute">{lang === 'es' ? 'Siguiente escultora' : 'Next sculptor'}</span><span className="qy-next-name">{next.name} →</span></button>
       <Footer />
@@ -326,7 +326,7 @@ function RunwayCarousel({ imgs }) {
         {imgs.map((it, k) => { const src = it.src || it; const on = k === i;
           const st = { height: 'min(70vh, 640px)', width: 'auto', flex: 'none', display: 'block', objectFit: 'cover', filter: on ? 'none' : 'grayscale(1)', opacity: on ? 1 : 0.55, transition: 'filter .6s, opacity .6s', cursor: on ? 'default' : 'pointer' };
           const p = { key: k, ref: el => (items.current[k] = el), onClick: () => setI(k), style: st };
-          return it.video ? <video {...p} src={src} controls={on} playsInline muted loop autoPlay onLoadedMetadata={center} /> : <img {...p} src={src} alt="" onLoad={center} />; })}
+          return it.video ? <video {...p} src={src} controls={on} playsInline muted loop autoPlay onLoadedMetadata={center} /> : <img loading="lazy" decoding="async" {...p} src={src} alt="" onLoad={center} />; })}
       </div>
       <div style={{ marginTop: 12 }}><CarouselNav i={i} n={n} go={go} /></div>
     </div>

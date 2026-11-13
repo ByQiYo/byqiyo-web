@@ -44,7 +44,7 @@ function HomeDesk() {
       <HeroSlides />
 
       <section className="qy-brand">
-        <img src="assets/byqiyo-logo.png" alt="By QiYo" />
+        <img loading="lazy" decoding="async" src="assets/byqiyo-logo.png" alt="By QiYo" />
         <h1 className="qy-claim">{tr(QY.home.claim, lang)}</h1>
         <p className="qy-eyebrow qy-mute">{tr(QY.home.claimSub, lang)}</p>
       </section>
@@ -63,7 +63,7 @@ function HomeDesk() {
       </section>
 
       <section className="qy-intro" style={{ paddingTop: 0 }}>
-        <img className="qy-intro-q" src="assets/byqiyo-q.png" alt="By QiYo" />
+        <img loading="lazy" decoding="async" className="qy-intro-q" src="assets/byqiyo-q.png" alt="By QiYo" />
         <div className="qy-intro-txt"><p className="qy-lead">{tr(QY.home.intro, lang)}</p><button className="qy-cta" onClick={() => go('about', 'byqiyo')}>{lang === 'es' ? 'Leer más' : 'Read more'} →</button></div>
       </section>
 
@@ -100,7 +100,7 @@ function HomeOld() {
       <HeroSlides />
 
       <section className="qy-brand">
-        <img src="assets/byqiyo-logo.png" alt="By QiYo" />
+        <img loading="lazy" decoding="async" src="assets/byqiyo-logo.png" alt="By QiYo" />
         <p className="qy-lead">{tr(QY.home.statement, lang)}</p>
         <p className="qy-body qy-mute">{tr(QY.home.statementSub, lang)}</p>
       </section>
