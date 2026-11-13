@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://byqiyo.github.io/sitemap.xml
