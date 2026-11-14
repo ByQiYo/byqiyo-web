@@ -17,7 +17,7 @@ function PageHead({ eyebrow, title, lead, back }) {
     <section className="qy-page-head">
       {back}
       <span className="qy-eyebrow qy-mute">{eyebrow}</span>
-      <h1 className="qy-h1">{title}</h1>
+      {title && <h1 className="qy-h1">{title}</h1>}
       {lead && <p className="qy-body qy-mute">{lead}</p>}
     </section>
   );
@@ -115,7 +115,7 @@ function Lab() {
   const { lang, go } = useApp();
   return (
     <div>
-      <PageHead eyebrow="QiYo 3D LAB" title={lang === 'es' ? 'Diseño impreso en 3D: bolsos, accesorios y laboratorio textil.' : '3D-printed design: bags, accessories and textile lab.'} lead={lang === 'es' ? 'Piezas en PETG reciclado y PLA.' : 'Pieces in recycled PETG and PLA.'} />
+      <PageHead eyebrow="QiYo 3D LAB" />
       <BaseGrid items={LAB.tipos.map(t => ({ key: t.id, slot: 'web-labcard-' + t.id, src: labCover(t.id), ratio: '4/5', label: t.es, title: t[lang] || t.es, meta: t.gallery ? t.gallery.length + (lang === 'es' ? ' detalles' : ' details') : t.subs ? t.subs.length + (lang === 'es' ? ' secciones' : ' sections') : LAB.pieces.filter(p => p.tipo === t.id).length + (lang === 'es' ? ' piezas' : ' pieces'), onClick: () => go('labcat', t.id) }))} />
       <Footer />
     </div>

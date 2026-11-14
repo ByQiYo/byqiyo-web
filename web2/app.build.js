@@ -2539,7 +2539,7 @@ function PageHead(_ref2) {
     className: "qy-page-head"
   }, back, React.createElement("span", {
     className: "qy-eyebrow qy-mute"
-  }, eyebrow), React.createElement("h1", {
+  }, eyebrow), title && React.createElement("h1", {
     className: "qy-h1"
   }, title), lead && React.createElement("p", {
     className: "qy-body qy-mute"
@@ -2867,9 +2867,7 @@ function Lab() {
     lang = _useApp4.lang,
     go = _useApp4.go;
   return React.createElement("div", null, React.createElement(PageHead, {
-    eyebrow: "QiYo 3D LAB",
-    title: lang === 'es' ? 'Diseño impreso en 3D: bolsos, accesorios y laboratorio textil.' : '3D-printed design: bags, accessories and textile lab.',
-    lead: lang === 'es' ? 'Piezas en PETG reciclado y PLA.' : 'Pieces in recycled PETG and PLA.'
+    eyebrow: "QiYo 3D LAB"
   }), React.createElement(BaseGrid, {
     items: LAB.tipos.map(function (t) {
       return {
