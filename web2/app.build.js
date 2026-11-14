@@ -2149,9 +2149,7 @@ function Journal() {
     className: "qy-page-head"
   }, React.createElement("span", {
     className: "qy-eyebrow qy-mute"
-  }, tr(QY.ui.nav.journal, lang)), React.createElement("h1", {
-    className: "qy-h1"
-  }, lang === 'es' ? 'Notas de taller, investigación y pasarela.' : 'Notes from the studio, research and runway.')), React.createElement("section", {
+  }, tr(QY.ui.nav.journal, lang))), React.createElement("section", {
     className: "qy-journal"
   }, QY.journal.map(function (j, i) {
     return React.createElement("div", {
@@ -2256,7 +2254,7 @@ function Contact() {
   }, React.createElement("span", {
     className: "qy-eyebrow qy-mute"
   }, tr(QY.ui.nav.contact, lang)), React.createElement("h1", {
-    className: "qy-h1"
+    className: "qy-h2"
   }, L.h), React.createElement("a", {
     className: "qy-h2 qy-mail",
     href: 'mailto:' + QY.contact.email
@@ -2276,7 +2274,7 @@ function Contact() {
   }, React.createElement("span", {
     className: "qy-eyebrow qy-mute"
   }, L.reason), React.createElement("div", {
-    className: "qy-chips"
+    className: "qy-chips qy-chips-line"
   }, QY.contact.reasons.map(function (r, i) {
     return React.createElement("button", {
       type: "button",

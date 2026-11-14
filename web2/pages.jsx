@@ -217,7 +217,7 @@ function Journal() {
   const { lang, go } = useApp();
   return (
     <div>
-      <section className="qy-page-head"><span className="qy-eyebrow qy-mute">{tr(QY.ui.nav.journal, lang)}</span><h1 className="qy-h1">{lang === 'es' ? 'Notas de taller, investigación y pasarela.' : 'Notes from the studio, research and runway.'}</h1></section>
+      <section className="qy-page-head"><span className="qy-eyebrow qy-mute">{tr(QY.ui.nav.journal, lang)}</span></section>
       <section className="qy-journal">
         {QY.journal.map((j, i) => (
           <div key={j.id} className={'qy-jcard' + (i === 0 ? ' first' : '')}>
@@ -265,13 +265,13 @@ function Contact() {
       <section className="qy-contact">
         <div className="qy-contact-l">
           <span className="qy-eyebrow qy-mute">{tr(QY.ui.nav.contact, lang)}</span>
-          <h1 className="qy-h1">{L.h}</h1>
+          <h1 className="qy-h2">{L.h}</h1>
           <a className="qy-h2 qy-mail" href={'mailto:' + QY.contact.email}>{QY.contact.email}</a>
           <a className="qy-body" href={QY.contact.instagramUrl} target="_blank" rel="noopener">Instagram {QY.contact.instagram}</a>
         </div>
         <form className="qy-form" onSubmit={e => { e.preventDefault(); setSent(true); }}>
           <div className="qy-field full"><span className="qy-eyebrow qy-mute">{L.reason}</span>
-            <div className="qy-chips">{QY.contact.reasons.map((r, i) => <button type="button" key={i} className={reason === i ? 'on' : ''} onClick={() => setReason(i)}>{tr(r, lang)}</button>)}</div>
+            <div className="qy-chips qy-chips-line">{QY.contact.reasons.map((r, i) => <button type="button" key={i} className={reason === i ? 'on' : ''} onClick={() => setReason(i)}>{tr(r, lang)}</button>)}</div>
           </div>
           <label className="qy-field"><span className="qy-eyebrow qy-mute">{L.name}</span><input required /></label>
           <label className="qy-field"><span className="qy-eyebrow qy-mute">{L.email}</span><input type="email" required /></label>
