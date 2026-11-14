@@ -4484,6 +4484,20 @@ var TWEAK_DEFAULTS = {
   "mobStrip": "foco"
 };
 var ROUTE_KEY = 'qy-web2-route';
+var QY_PAGES = ['home', 'collections', 'collection', 'about', 'journal', 'entry', 'contact', 'projects', 'project', 'lab', 'labcat', 'labsub', 'process', 'sculptor', 'search', 'legal'];
+var routeToHash = function routeToHash(page, param) {
+  return page === 'home' ? '' : '#/' + page + (param ? '/' + encodeURIComponent(param) : '');
+};
+var hashToRoute = function hashToRoute() {
+  var m = location.hash.match(/^#\/([a-z]+)(?:\/(.+))?$/);
+  return m && QY_PAGES.includes(m[1]) ? {
+    page: m[1],
+    param: m[2] ? decodeURIComponent(m[2]) : null
+  } : {
+    page: 'home',
+    param: null
+  };
+};
 function App() {
   var _useTweaks = useTweaks(TWEAK_DEFAULTS),
     _useTweaks2 = _slicedToArray(_useTweaks, 2),
@@ -4496,10 +4510,7 @@ function App() {
       return {};
     }
   }();
-  var _useState = useState({
-      page: 'home',
-      param: null
-    }),
+  var _useState = useState(hashToRoute),
     _useState2 = _slicedToArray(_useState, 2),
     route = _useState2[0],
     setRoute = _useState2[1];
@@ -4538,6 +4549,7 @@ function App() {
         jump();
         return;
       }
+      history.pushState(null, '', routeToHash('collection', id));
       setFading(true);
       setTimeout(function () {
         setRoute({
@@ -4557,6 +4569,7 @@ function App() {
       return;
     }
     setFading(true);
+    history.pushState(null, '', routeToHash(page, param) || location.pathname);
     setTimeout(function () {
       setRoute({
         page: page,
@@ -4566,6 +4579,20 @@ function App() {
       setFading(false);
     }, 280);
   };
+  useEffect(function () {
+    var onPop = function onPop() {
+      setFading(true);
+      setTimeout(function () {
+        setRoute(hashToRoute());
+        scrollTo(0, 0);
+        setFading(false);
+      }, 200);
+    };
+    addEventListener('popstate', onPop);
+    return function () {
+      return removeEventListener('popstate', onPop);
+    };
+  }, []);
   window.__qyGo = function (page, param) {
     setRoute({
       page: page,
