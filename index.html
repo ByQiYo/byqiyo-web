@@ -132,7 +132,7 @@ img{display:block}
 .qy-jrow{width:100%;display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #D8D8D8;font-size:18px;font-weight:500;align-items:baseline;transition:opacity .3s}
 .qy-jrow:hover{opacity:.55}
 /* footer */
-.qy-footer{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:32px;padding:56px var(--g) 24px}
+.qy-footer{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr));gap:32px;padding:48px var(--g) 24px}
 .qy-footer-brand{display:flex;flex-direction:column;gap:20px}.qy-footer-brand img{height:44px;width:auto;align-self:flex-start}
 .qy-footer-brand p{font-size:14px;line-height:1.6;max-width:44ch}
 .qy-footer-col{display:flex;flex-direction:column;gap:10px;font-size:14px}
@@ -436,15 +436,15 @@ html.qy-snap{scroll-snap-type:y mandatory}
 .qy-about .qy-lead{text-align:left!important;hyphens:auto}
 .qy-footer-base{flex-wrap:wrap;gap:12px 20px}.qy-footer-base>*{min-height:40px;display:inline-flex;align-items:center}
 .qy-footer{padding-bottom:32px}
-.qy-footer-col:nth-of-type(2){display:none}
+.qy-footer-nav{display:none!important}
 }
 @media (min-width:701px) and (max-width:1024px){.qy-app-news .qy-news-c{flex-basis:38%}.qy-ms-a-cap h2{font-size:34px}.qy-col-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.qy-col-cards .qy-col-card-cap{font-size:40px}.qy-card-txt{max-width:640px}.qy-news-c{flex-basis:46%}}
 @media (hover:none){.qy-reveal{display:none}}
 @media (max-width:1100px){.qy-nav-item>button{min-height:40px;display:inline-flex;align-items:center}.qy-footer-col button,.qy-footer-col a{min-height:40px;display:flex;align-items:center;text-align:left}.qy-footer-col{gap:0}.qy-cta,.qy-submit{min-height:44px;display:inline-flex;align-items:center}.qy-link{min-height:40px;display:inline-flex;align-items:center}}
-@media (min-width:701px) and (max-width:1100px){.qy-footer{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.qy-footer-brand{grid-column:1/-1}.qy-footer-base{flex-wrap:wrap;gap:16px}.qy-lang button{min-width:40px;min-height:40px}}
+@media (min-width:701px) and (max-width:1100px){.qy-footer{grid-template-columns:repeat(4,minmax(0,1fr))}.qy-footer-brand{grid-column:1/-1}.qy-footer-base{flex-wrap:wrap;gap:16px}.qy-lang button{min-width:40px;min-height:40px}}
 @media (max-width:700px){.qy-eyebrow{font-size:12px}.qy-footer-col{gap:0}.qy-footer-col button,.qy-footer-col a{min-height:44px;display:flex;align-items:center;text-align:left}.qy-footer-base{flex-direction:column;align-items:flex-start;gap:12px}.qy-footer-base button,.qy-footer-base a{min-height:44px;display:inline-flex;align-items:center}.qy-lang button{min-width:44px;min-height:44px}.qy-hero{height:100svh}.qy-submit{min-height:48px}.qy-jcard-t{min-height:44px;text-align:left}.qy-mm-group button{min-height:44px}}
 /* 3D Lab: las tres tarjetas en una fila y a la altura de la pantalla, sin tener que bajar */
-.qy-col-cards.qy-lab-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,12px);max-width:calc((100svh - 250px) * .8 * 3 + 24px + 2 * var(--g))}
+.qy-col-cards.qy-lab-cards{margin-inline:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,12px);max-width:calc((100svh - 250px) * .8 * 3 + 24px + 2 * var(--g))}
 .qy-col-cards.qy-lab-cards .qy-col-card-cap{position:static;aspect-ratio:auto;display:flex;flex-direction:row;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 10px;padding:10px 0 0;background:none;color:inherit;font-size:clamp(14px,1.5vw,22px);letter-spacing:-.01em;line-height:1.15}
 .qy-col-cards.qy-lab-cards .qy-col-card-cap .qy-eyebrow{color:inherit!important;opacity:.55;font-size:clamp(9px,.8vw,11px)}
 .qy-col-cards.qy-lab-cards .qy-slot{aspect-ratio:4/5!important}

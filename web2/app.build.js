@@ -923,7 +923,7 @@ function Footer(_ref2) {
       color: th.mute
     }
   }, tr(QY.home.claim, lang), " ", tr(QY.home.claimSub, lang), ".")), React.createElement("div", {
-    className: "qy-footer-col"
+    className: "qy-footer-col qy-footer-nav"
   }, React.createElement("span", {
     className: "qy-eyebrow",
     style: {
@@ -936,14 +936,28 @@ function Footer(_ref2) {
         return go(k);
       }
     }, tr(QY.ui.nav[k], lang));
-  }), QY.collections.map(function (c) {
+  })), React.createElement("div", {
+    className: "qy-footer-col qy-footer-nav"
+  }, React.createElement("span", {
+    className: "qy-eyebrow",
+    style: {
+      color: th.mute
+    }
+  }, tr(QY.ui.nav.runway, lang)), QY.collections.map(function (c) {
     return React.createElement("button", {
       key: 'r' + c.id,
       onClick: function onClick() {
         return go('runway', c.id);
       }
-    }, tr(QY.ui.nav.runway, lang) + ' ' + c.name);
-  }), ['about', 'journal', 'contact'].map(function (k) {
+    }, c.name);
+  })), React.createElement("div", {
+    className: "qy-footer-col qy-footer-nav"
+  }, React.createElement("span", {
+    className: "qy-eyebrow",
+    style: {
+      color: th.mute
+    }
+  }, "By QiYo"), ['about', 'journal', 'contact'].map(function (k) {
     return React.createElement("button", {
       key: k,
       onClick: function onClick() {

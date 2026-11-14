@@ -110,10 +110,16 @@ function Footer({ theme = 'paper' }) {
         <img loading="lazy" decoding="async" src="assets/byqiyo-logo.png" alt="By QiYo" style={{ filter: th.bg !== '#FFFFFF' ? 'invert(1)' : 'none' }} />
         <p style={{ color: th.mute }}>{tr(QY.home.claim, lang)} {tr(QY.home.claimSub, lang)}.</p>
       </div>
-      <div className="qy-footer-col">
+      <div className="qy-footer-col qy-footer-nav">
         <span className="qy-eyebrow" style={{ color: th.mute }}>Web</span>
         {['collections', 'projects', 'lab', 'process'].map(k => <button key={k} onClick={() => go(k)}>{tr(QY.ui.nav[k], lang)}</button>)}
-        {QY.collections.map(c => <button key={'r' + c.id} onClick={() => go('runway', c.id)}>{tr(QY.ui.nav.runway, lang) + ' ' + c.name}</button>)}
+      </div>
+      <div className="qy-footer-col qy-footer-nav">
+        <span className="qy-eyebrow" style={{ color: th.mute }}>{tr(QY.ui.nav.runway, lang)}</span>
+        {QY.collections.map(c => <button key={'r' + c.id} onClick={() => go('runway', c.id)}>{c.name}</button>)}
+      </div>
+      <div className="qy-footer-col qy-footer-nav">
+        <span className="qy-eyebrow" style={{ color: th.mute }}>By QiYo</span>
         {['about', 'journal', 'contact'].map(k => <button key={k} onClick={() => go(k)}>{tr(QY.ui.nav[k], lang)}</button>)}
       </div>
       <div className="qy-footer-col">
