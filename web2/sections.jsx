@@ -1,6 +1,6 @@
-function BaseGrid({ items }) {
+function BaseGrid({ items, className = '' }) {
   return (
-    <section className="qy-col-cards">
+    <section className={'qy-col-cards' + (className ? ' ' + className : '')}>
       {items.map(it => (
         <div key={it.key} className="qy-col-card qy-clickable" onClick={it.onClick} role="link">
           <Slot id={it.slot} label={it.label} ratio={it.ratio || '3/2'} src={it.src} />
@@ -116,7 +116,7 @@ function Lab() {
   return (
     <div>
       <PageHead eyebrow="QiYo 3D LAB" />
-      <BaseGrid items={LAB.tipos.map(t => ({ key: t.id, slot: 'web-labcard-' + t.id, src: labCover(t.id), ratio: '4/5', label: t.es, title: t[lang] || t.es, meta: t.gallery ? t.gallery.length + (lang === 'es' ? ' detalles' : ' details') : t.subs ? t.subs.length + (lang === 'es' ? ' secciones' : ' sections') : LAB.pieces.filter(p => p.tipo === t.id).length + (lang === 'es' ? ' piezas' : ' pieces'), onClick: () => go('labcat', t.id) }))} />
+      <BaseGrid className="qy-lab-cards" items={LAB.tipos.map(t => ({ key: t.id, slot: 'web-labcard-' + t.id, src: labCover(t.id), ratio: '4/5', label: t.es, title: t[lang] || t.es, meta: t.gallery ? t.gallery.length + (lang === 'es' ? ' detalles' : ' details') : t.subs ? t.subs.length + (lang === 'es' ? ' secciones' : ' sections') : LAB.pieces.filter(p => p.tipo === t.id).length + (lang === 'es' ? ' piezas' : ' pieces'), onClick: () => go('labcat', t.id) }))} />
       <Footer />
     </div>
   );
