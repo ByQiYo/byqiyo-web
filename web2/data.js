@@ -21,7 +21,7 @@ window.QY = {
     { slot: 'web-hero-4', posM: '46% center', src: 'img/home-cruzroja-2025-hospital-real.jpg', col: 'thalaira', cap: L('Thalaira, Pasarela Cruz Roja Granada · Hospital Real', 'Thalaira, Cruz Roja Granada Runway · Hospital Real') },
   ],
   home: {
-    claim: L('“La forma de ser diferente”', '“The way to be different”'),
+    claim: L('“No seas diferente, sé único”', '“Don’t be different, be unique”'),
     claimSub: L('Moda de autor y complementos', 'Author fashion and accessories'),
     intro: L('By QiYo es una marca que ha surgido de la necesidad de actualizar la moda de autor a la tecnología actual. Se podría definir como una marca de moda emergente y contemporánea que se mueve entre el prêt-à-porter y, a su vez, desarrolla colecciones de carácter conceptual.', 'By QiYo is a brand born from the need to bring author fashion up to date with today’s technology. It could be defined as an emerging, contemporary fashion brand that moves within prêt-à-porter while also developing collections of a conceptual nature.'),
     tiles: [
