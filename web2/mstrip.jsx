@@ -48,7 +48,6 @@ function MStripAcordeon({ tiles, lang, go }) {
             <h2>{t.title || tr(QY.ui.nav[t.go], lang)}</h2>
             <span className="qy-ms-a-go">{on ? (lang === 'es' ? 'Entrar →' : 'Enter →') : '+'}</span>
           </div>
-          {on && <p className="qy-ms-a-d">{tr(t.d, lang)}</p>}
         </div>); })}
     </section>
   );
@@ -70,7 +69,6 @@ function MStripCarrusel({ tiles, lang, go }) {
       <div className="qy-ms-c-cap">
         <div className="qy-ms-c-row"><span className="qy-num">{n2(a + 1)} / {n2(tiles.length)}</span><span className="qy-ms-dots">{tiles.map((_, k) => <button key={k} className={k === a ? 'on' : ''} onClick={() => to(k)} aria-label={'Sección ' + (k + 1)}></button>)}</span></div>
         <h2>{t.title || tr(QY.ui.nav[t.go], lang)}</h2>
-        <p className="qy-small">{tr(t.d, lang)}</p>
         <button className="qy-cta" onClick={() => go(t.go)}>{tr(t.t, lang)} →</button>
       </div>
     </section>

@@ -75,7 +75,7 @@ function HomeDesk() {
               <span className="qy-num qy-mute">{n2(k + 1)}</span>
               <h2 className="qy-strip-t">{t.title || tr(QY.ui.nav[t.go], lang)}</h2>
               <span className="qy-small qy-mute">{tr(t.t, lang)}</span>
-              <p className="qy-strip-d qy-small">{tr(t.d, lang)} <span className="qy-strip-go">→</span></p>
+              <p className="qy-strip-d qy-small"><span className="qy-strip-go">→</span></p>
             </div>
           </div>
         ))}

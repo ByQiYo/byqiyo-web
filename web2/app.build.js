@@ -1395,7 +1395,7 @@ function HomeDesk() {
       className: "qy-small qy-mute"
     }, tr(t.t, lang)), React.createElement("p", {
       className: "qy-strip-d qy-small"
-    }, tr(t.d, lang), " ", React.createElement("span", {
+    }, React.createElement("span", {
       className: "qy-strip-go"
     }, "\u2192"))));
   })) : React.createElement(MobileStrip, {
@@ -3996,9 +3996,7 @@ function MStripAcordeon(_ref3) {
       className: "qy-num"
     }, n2(k + 1)), React.createElement("h2", null, t.title || tr(QY.ui.nav[t.go], lang)), React.createElement("span", {
       className: "qy-ms-a-go"
-    }, on ? lang === 'es' ? 'Entrar →' : 'Enter →' : '+')), on && React.createElement("p", {
-      className: "qy-ms-a-d"
-    }, tr(t.d, lang)));
+    }, on ? lang === 'es' ? 'Entrar →' : 'Enter →' : '+')));
   }));
 }
 function MStripCarrusel(_ref4) {
@@ -4057,9 +4055,7 @@ function MStripCarrusel(_ref4) {
       },
       "aria-label": 'Sección ' + (k + 1)
     });
-  }))), React.createElement("h2", null, t.title || tr(QY.ui.nav[t.go], lang)), React.createElement("p", {
-    className: "qy-small"
-  }, tr(t.d, lang)), React.createElement("button", {
+  }))), React.createElement("h2", null, t.title || tr(QY.ui.nav[t.go], lang)), React.createElement("button", {
     className: "qy-cta",
     onClick: function onClick() {
       return go(t.go);
