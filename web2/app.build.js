@@ -1956,7 +1956,28 @@ function Collection(_ref3) {
     id: "web-c-ed-".concat(c.id, "-4"),
     label: "Editorial \xB7 horizontal",
     ratio: "3/2"
-  })))), React.createElement("section", {
+  })))), QY.taller.some(function (g) {
+    return g.id === c.id;
+  }) && React.createElement("section", {
+    className: "qy-block"
+  }, React.createElement(SectionHead, {
+    label: lang === 'es' ? 'Proceso' : 'Process',
+    right: tr(QY.ui.nav.process, lang),
+    theme: c.theme
+  }), React.createElement("button", {
+    className: "qy-taller-link",
+    onClick: function onClick() {
+      return go('process', c.id);
+    },
+    style: {
+      borderColor: th.fg
+    }
+  }, React.createElement("span", {
+    className: "qy-h2"
+  }, lang === 'es' ? 'Ver el proceso de ' + c.name + ' en el taller' : 'See the making of ' + c.name + ' in the studio'), React.createElement("span", {
+    className: "qy-taller-link-go",
+    "aria-hidden": "true"
+  }, "\u2192"))), React.createElement("section", {
     className: "qy-block"
   }, React.createElement("div", {
     id: "pasarela"
@@ -3027,10 +3048,24 @@ function LabSub(_ref8) {
     ratio: "3/2"
   })))), React.createElement(Footer, null));
 }
-function Process() {
+function Process(_ref9) {
+  var id = _ref9.id;
   var _useApp7 = useApp(),
     lang = _useApp7.lang;
   var es = lang === 'es';
+  useEffect(function () {
+    if (!id) return;
+    var t = setTimeout(function () {
+      var el = document.getElementById('taller-' + id);
+      if (el) scrollTo({
+        top: el.getBoundingClientRect().top + scrollY - 80,
+        behavior: 'smooth'
+      });
+    }, 350);
+    return function () {
+      return clearTimeout(t);
+    };
+  }, [id]);
   return React.createElement("div", null, React.createElement(PageHead, {
     eyebrow: tr(QY.ui.nav.process, lang),
     title: es ? 'Cada pieza se construye a mano, capa a capa.' : 'Each piece is built by hand, layer by layer.',
@@ -3038,6 +3073,7 @@ function Process() {
   }), QY.taller.map(function (g) {
     return React.createElement("section", {
       key: g.id,
+      id: 'taller-' + g.id,
       className: "qy-block"
     }, React.createElement(SectionHead, {
       label: tr(g.t, lang),

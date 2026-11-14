@@ -138,6 +138,16 @@ function Collection({ id }) {
         )}
       </section>
 
+      {QY.taller.some(g => g.id === c.id) && (
+        <section className="qy-block">
+          <SectionHead label={lang === 'es' ? 'Proceso' : 'Process'} right={tr(QY.ui.nav.process, lang)} theme={c.theme} />
+          <button className="qy-taller-link" onClick={() => go('process', c.id)} style={{ borderColor: th.fg }}>
+            <span className="qy-h2">{lang === 'es' ? 'Ver el proceso de ' + c.name + ' en el taller' : 'See the making of ' + c.name + ' in the studio'}</span>
+            <span className="qy-taller-link-go" aria-hidden="true">→</span>
+          </button>
+        </section>
+      )}
+
       <section className="qy-block">
         <div id="pasarela"></div><SectionHead label={tr(QY.ui.nav.runway, lang)} right={tr(c.runway, lang)} theme={c.theme} />
         {c.runwayImgs ? (

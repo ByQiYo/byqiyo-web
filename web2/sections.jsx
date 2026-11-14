@@ -178,14 +178,20 @@ function LabSub({ id }) {
   );
 }
 
-function Process() {
+function Process({ id }) {
   const { lang } = useApp();
   const es = lang === 'es';
+  // Si se llega desde una colección, baja hasta su sección del taller.
+  useEffect(() => {
+    if (!id) return;
+    const t = setTimeout(() => { const el = document.getElementById('taller-' + id); if (el) scrollTo({ top: el.getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' }); }, 350);
+    return () => clearTimeout(t);
+  }, [id]);
   return (
     <div>
       <PageHead eyebrow={tr(QY.ui.nav.process, lang)} title={es ? 'Cada pieza se construye a mano, capa a capa.' : 'Each piece is built by hand, layer by layer.'} lead={es ? 'Lo que pasa en el taller, entrada a entrada.' : 'What happens in the studio, one entry at a time.'} />
       {QY.taller.map(g => (
-        <section key={g.id} className="qy-block">
+        <section key={g.id} id={'taller-' + g.id} className="qy-block">
           <SectionHead label={tr(g.t, lang)} right={g.imgs.length ? n2(g.imgs.length) : null} />
           {g.imgs.length ? <RunwayCarousel imgs={g.imgs} /> : <div className="qy-taller">{[1, 2, 3].map(n => <Slot key={n} id={'web-taller-' + g.id + '-' + n} label={'Taller ' + tr(g.t, 'es') + ' · foto ' + n} ratio="4/5" />)}</div>}
         </section>
